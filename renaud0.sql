@@ -1,3 +1,28 @@
+CREATE DATABASE IF NOT EXISTS `LIVRES` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `LIVRES`;
+CREATE TABLE `CLIENT` (
+    `codec` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `prenom` VARCHAR(42),
+    `nom` VARCHAR(42),
+    `rue` VARCHAR(42),
+    `cpostal` VARCHAR(42),
+    `ville` VARCHAR(42)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE `EMPRUNT` (
+    `codel` INT,
+    `codec` INT,
+    `date_d'emprunt` VARCHAR(42),
+    `durée(j)` VARCHAR(42),
+    PRIMARY KEY (`codel`, `codec`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE `LIVRE` (
+    `codel` INT PRIMARY KEY AUTO_INCREMENT,
+    `titre` VARCHAR(42)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+ALTER TABLE `EMPRUNT`
+ADD FOREIGN KEY (`codec`) REFERENCES `CLIENT` (`codec`);
+ALTER TABLE `EMPRUNT`
+ADD FOREIGN KEY (`codel`) REFERENCES `LIVRE` (`codel`);
 INSERT INTO CLIENT (prenom, nom, rue, cpostal, ville)
 VALUES (
         'Alain',
@@ -89,37 +114,19 @@ VALUES (
         '13 rue des grimaces',
         '02789',
         'Lille-lep'
-    ) CREATE DATABASE IF NOT EXISTS `LIVRES` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `LIVRES`;
-CREATE TABLE `CLIENT` (
-    `codec` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `prenom` VARCHAR(42),
-    `nom` VARCHAR(42),
-    `rue` VARCHAR(42),
-    `cpostal` VARCHAR(42),
-    `ville` VARCHAR(42)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-CREATE TABLE `EMPRUNT` (
-    `codel` INT,
-    `codec` INT,
-    `date_d'emprunt` VARCHAR(42),
-    `durée(j)` VARCHAR(42),
-    PRIMARY KEY (`codel`, `codec`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-CREATE TABLE `LIVRE` (
-    `codel` INT PRIMARY KEY AUTO_INCREMENT,
-    `titre` VARCHAR(42)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-ALTER TABLE `EMPRUNT`
-ADD FOREIGN KEY (`codec`) REFERENCES `CLIENT` (`codec`);
-ALTER TABLE `EMPRUNT`
-ADD FOREIGN KEY (`codel`) REFERENCES `LIVRE` (`codel`);
-SELECT titre,
-    `date_d'emprunt`
-FROM `emprunt`
-    JOIN livre
-WHERE emprunt.codel = livre.codel
-ORDER BY titre;
+    );
+INSERT INTO livres (titre)
+VALUES ('les oiseaux'),
+    ('les chiens'),
+    ('les lamas'),
+    ('les grenouilles'),
+    ('les mouches'),
+    ('les lions'),
+    ('les chats'),
+    ('les lapins'),
+    ('les elephants'),
+    ('les girafes'),
+    ('les poissons');
 INSERT INTO emprunt
 VALUES (1, 2, '2020-10-10', '1'),
     (1, 4, '2020-10-11', '3'),
@@ -132,6 +139,12 @@ VALUES (1, 2, '2020-10-10', '1'),
     (6, 8, '2020-10-18', '2'),
     (7, 7, '2020-10-10', '1'),
     (7, 9, '2020-10-18', '4');
+SELECT titre,
+    `date_d'emprunt`
+FROM `emprunt`
+    JOIN livre
+WHERE emprunt.codel = livre.codel
+ORDER BY titre;
 SELECT client.codec,
     ville,
     IFNULL(codel, `Pas d'emprunt`) as numLivreEmpr
@@ -151,4 +164,4 @@ SELECT client.nom as nomClient,
 FROM `emprunts`
     RIGHT JOIN client on emprunt.codec = client.codec
     LEFT JOIN livre ON emprunt.codel = livre.codel
-    order by nom;
+order by nom;
