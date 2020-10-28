@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nom, moy; 
+        var moyG = 0; 
+        var res = '';
+        var note = 0
+        for(var i = 1; i <= 3 ; i++){
+            moy = 0;
+            nom = prompt('Entré le nom du l\'étudiant '+i);
+            var u = 1;
+            do{
+                do{ note = Number(prompt('Entré la note '+u+' de '+nom))
+                if(note < 0 || note > 20) {alert('Note invalide !');}
+                }while (note < 0 || note > 20);
+                moy += note;
+                u++;
+            }while(u <= 3);
+            moyG += moy/3;
+            res += nom+' : '+(moy/3).toFixed(1)+'<br>';
+        }
+        document.write(res+'Moyenne Général : '+(moyG/3).toFixed(1));
+    </script>
+</body>
+</html>

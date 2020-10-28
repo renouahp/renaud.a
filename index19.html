@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var arr = [3, 2, [5, 1], [2, [2, 3]], 6];
+
+function flatStack(input) {
+  const stack = [...input];
+  const res = [];
+  while (stack.length) {
+    const next = stack.pop();
+    if (Array.isArray(next)) {
+      stack.push(...next);
+    } else {
+      res.push(next);
+    }
+  }
+  return res.reverse();
+}
+
+tabA = flatStack(arr);
+document.write(tabA);
+    </script>
+</body>
+</html>

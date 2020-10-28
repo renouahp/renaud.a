@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link id="styleee" rel="stylesheet" href="" />
+  </head>
+  <body>
+    <button
+      type="button"
+      id="style1.css"
+      onclick="createCookie('style', 'style3', '7')"
+    >
+      3
+    </button>
+    <button
+      type="button"
+      id="style2.css"
+      onclick="createCookie('style', 'style2', '7')"
+    >
+      2
+    </button>
+    <button
+      type="button"
+      id="style3.css"
+      onclick="createCookie('style', 'style1', '7')"
+    >
+      1
+    </button>
+    <script>
+      document.getElementById("styleee").href = readCookie("style") + ".css";
+      
+      function createCookie(name, value, days) {
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          var expires = "; expires=" + date.toGMTString();
+        } else var expires = "";
+        document.cookie = name + "=" + value + expires + "; path=/";
+      }
+
+      function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      function eraseCookie(name) {
+        createCookie(name, "", -1);
+      }
+      if (readCookie("style")) {
+        createCookie("style", "style1", "7");
+      }
+    </script>
+  </body>
+</html>

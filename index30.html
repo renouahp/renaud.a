@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flex {
+        display: flex;
+        justify-content: space-between;
+      }
+      .green {
+          background-color: green;
+          color: black;
+      }
+      .pink{
+          color: pink;
+      }
+      .blue{
+          color: blue;
+      }
+      .white {
+          display: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div style="display: flex">
+      <div style="margin: auto; width: 45%">
+        <form>
+          <div class="flex">
+            <label for="GET-name">Nom :</label>
+            <input id="GET-name" type="text" name="name" style = "width: 21.7em;" />
+          </div>
+          <br />
+          <div class="flex">
+            <label for="GET-surname">Prenom :</label>
+            <input id="GET-surname" type="text" name="surname" style = "width: 21.7em;" />
+          </div>
+          <br />
+          <div class="flex">
+            <label for="GET-date">Date :</label>
+            <input id="GET-date" type="date" name="date" size="45" style = "width: 21.7em;"/>
+          </div>
+          <br />
+          <div class="flex">
+            <label for="GET-url">Url :</label>
+            <input id="GET-url" type="url" name="url" style = "width: 21.7em;" />
+          </div>
+          <br />
+          <div class="flex">
+            <label for="GET-sex">Sexe :</label>
+            <label for="GET-male">Homme</label>
+            <input id="GET-male" type="radio" name="sex" checked />
+            <label for="GET-female">Femme</label>
+            <input id="GET-female" type="radio" name="sex" />
+          </div>
+          <br />
+          <button
+            
+            type="button"
+            style="float: right"
+            onclick="jpp()"
+          >Ajouter</button>
+        </form>
+      </div>
+      <div
+        style="
+          margin: auto;
+          border: 1px solid black;
+          width: 50%;
+          overflow-y: scroll;
+          height: 400px;
+        "
+      >
+        <table style="width: 100%" id="tb">
+          
+        </table>
+      </div>
+    </div>
+    <input type="button" value="supprimer" onclick="jpp3()" style="float: right; margin: 22px" />
+    <script>
+      str = '<tr style="height: 2em; position: sticky; top:0; background-color: gray; text-align: center;">';
+      str +=          '<th>Nom</th>';
+      str +=          '<th>Prenom</th>';
+      str +=    '<th>Né(e) Le</th>';
+      str +=    '<th>Sexe</th>';
+      str +=  '</tr>';
+      var tab = document.getElementById("tb");
+      tab.innerHTML=str;
+      function jpp() {
+          var nm = document.getElementById("GET-name").value,
+          pnm = document.getElementById("GET-surname").value,
+          date = document.getElementById("GET-date").value,
+          sx = document.getElementById('GET-male'),
+          tr = document.createElement("tr"),
+          td = document.createElement("td"),
+          td1 = document.createElement("td"),
+          td2 = document.createElement("td"),
+          td3 = document.createElement("td");
+        if (nm == "" || pnm == "" || date == "") {alert("Ho je peux vivre un peu!");}
+        else{  td.appendChild(document.createTextNode(nm));
+          tr.appendChild(td);
+          td1.appendChild(document.createTextNode(pnm));
+          tr.appendChild(td1);
+          td2.appendChild(document.createTextNode(date));
+          tr.appendChild(td2);
+          if (sx.checked) {
+              td3.appendChild(document.createTextNode("Homme"));
+              tr.className = "blue";
+          }
+          else {td3.appendChild(document.createTextNode("Femme"));
+          tr.className = "pink";}
+          tr.appendChild(td3);
+          tr.addEventListener("click", jpp2, false);
+          tab.appendChild(tr);}
+      }
+      var i = 0,
+      ii = "";
+      function jpp2() {
+        if (i!=0) {
+            var star = document.getElementsByClassName("green");
+            star[0].className = ii;
+        }
+        ii = this.className;
+        this.className = "green";
+        i++;
+      }
+      function jpp3 () {
+        if (i==0){alert("Ho je peux vivre un peu!");}
+        else {var stabi = document.getElementsByClassName("green");
+        stabi[0].remove();
+        i = 0;}
+      }
+    </script>
+  </body>
+</html>

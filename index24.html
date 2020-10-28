@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var Contact = {
+        DAlix: {
+          prenom: "Alix",
+          nom: "Dupont",
+          email: "alix@laterre.com",
+          telephone: "07.25.36.14.47"
+        },
+        TZara: { prenom: "Zara", nom: "Tartan", telephone: "03.95.62.84.71" },
+        ZYola: {
+          prenom: "Yola",
+          nom: "Zitoune",
+          email: "yola.zitoune@site.com"
+        },
+        EDora: { prenom: "Dora", nom: "Explor" }
+      };
+
+
+      console.log(Object.keys(Contact));
+
+      console.log(Contact.hasOwnProperty('Zata'));
+      console.log(Contact.hasOwnProperty('EDora'));
+
+      function test (zz, z) {
+          if(zz.hasOwnProperty(z)) console.log(zz [z]);
+      }
+
+      test(Contact, "ZYola");
+    </script>
+  </body>
+</html>

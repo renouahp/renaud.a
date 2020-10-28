@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pen{
+            background-color: darkgrey;
+        }
+        .pen:hover{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="pen" id="gnegne">
+            plus
+        </span>
+        <span class="pen" id="gne">
+            moins
+        </span>
+    </header>
+    <div id="css">
+        <h2 style="font-size: 2.5em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt maiores odit distinctio velit accusantium cumque temporibus numquam laudantium ab sint alias at recusandae quae molestiae deserunt modi, expedita magni iste ipsum fuga perferendis libero aspernatur. Eveniet illum asperiores cupiditate unde commodi voluptate dolore, soluta culpa voluptatem, ex fugiat nostrum ipsam.</h2>
+        <div style="font-size: 2em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt maiores odit distinctio velit accusantium cumque temporibus numquam laudantium ab sint alias at recusandae quae molestiae deserunt modi, expedita magni iste ipsum fuga perferendis libero aspernatur. Eveniet illum asperiores cupiditate unde commodi voluptate dolore, soluta culpa voluptatem, ex fugiat nostrum ipsam.</div>
+        <h2 style="font-size: 2.5em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt maiores odit distinctio velit accusantium cumque temporibus numquam laudantium ab sint alias at recusandae quae molestiae deserunt modi, expedita magni iste ipsum fuga perferendis libero aspernatur. Eveniet illum asperiores cupiditate unde commodi voluptate dolore, soluta culpa voluptatem, ex fugiat nostrum ipsam.</h2>
+        <div style="font-size: 2em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt maiores odit distinctio velit accusantium cumque temporibus numquam laudantium ab sint alias at recusandae quae molestiae deserunt modi, expedita magni iste ipsum fuga perferendis libero aspernatur. Eveniet illum asperiores cupiditate unde commodi voluptate dolore, soluta culpa voluptatem, ex fugiat nostrum ipsam.</div>
+    </div>
+    <script>
+        var sts = document.getElementById("css"),
+        vi = 16,
+        idd = document.getElementById('gne');
+        idd2 = document.getElementById('gnegne');
+        document.getElementById('css').style.fontSize = vi + "px";
+        idd.addEventListener("click", jpp, false);
+        idd2.addEventListener("click", jpp2, false);
+        function jpp () {
+            vi--;
+            document.getElementById('css').style.fontSize = vi + "px";
+        }
+        function jpp2 () {
+            vi++;
+            document.getElementById('css').style.fontSize = vi + "px";
+        }
+    </script>
+</body>
+</html>

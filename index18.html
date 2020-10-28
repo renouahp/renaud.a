@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var msg = "je suis %nom%, j'ai %age% et j'aime le %matiere%",
+        tab = [["%nom%", "Anne"], ["%age%", "25"], ["%matiere%", "HTML"]];
+        function remplaceStr (acc, item) {
+           return acc.replace(item[0],item[1]);
+        }
+        var kl = tab.reduce(remplaceStr, msg);
+        document.write(kl);
+    </script>
+</body>
+</html>

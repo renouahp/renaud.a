@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document à créer par méthodes du HTMl DOM</title>
+  </head>
+  <body>
+    <!--
+
+  Exercice : créer le document suivant :
+
+    <div id="dwwm">
+      <strong>L'hyper Text Markup language</strong>, généralement abrégé en
+      <a href="https://fr.wikipedia.org/wiki/Hypertext_Markup_Language"><strong>HTML</strong></a>, est le langage de balisage conçu pour representer les pages web.
+      <br />
+      C'est un langage permettant d'ecrire de l'hypertext, d'ou son nom.<br />
+      il est promu par le <a href="http://fr.wikipedia.org/wiki/World_Weide_Web">World Wide Web</a>
+    </div> -->
+  
+    <div id="container"></div>
+
+
+
+    <script>
+      let mysection = document.createElement('div');
+      let mysection2 = document.createElement('a');
+      let mysection5 = document.createElement('a');
+      let mysection3 = document.createElement('strong');
+      let mysection4 = document.createElement('br');
+      let txtstr = document.createTextNode("L'hyper Text Markup language");
+      let txt = document.createTextNode(", généralement abrégé en ");
+      let txt2 = document.createTextNode("HTML");
+      let txt3 = document.createTextNode(", est le langage de balisage conçu pour representer les pages web.");
+      let txt4 = document.createTextNode("C'est un langage permettant d'ecrire de l'hypertext, d'ou son nom.");
+      let txt5 = document.createTextNode("il est promu par le ");
+      let txt6 = document.createTextNode("World Wide Web");
+      mysection3.appendChild(txtstr);
+      mysection2.appendChild(mysection3);
+      mysection5.appendChild(txt6);
+      
+      mysection.appendChild(mysection3);
+      mysection.appendChild(txt);
+      mysection.appendChild(mysection2);
+      mysection.appendChild(txt3);
+      mysection.appendChild(txt3);
+      mysection.appendChild(mysection4);
+      mysection.appendChild(txt4);
+      mysection.appendChild(mysection4);
+      mysection.appendChild(txt5);
+      mysection.appendChild(mysection5);
+      let idTest = document.getElementById("container");
+        idTest.appendChild(mysection);
+
+
+    </script>
+  </body>
+</html>

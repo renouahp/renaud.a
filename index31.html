@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: lightgray">
+    <fieldset style="border: 1px solid black">
+      <legend>information du joueurs:</legend>
+      <label for="GET-name">Nom :</label>
+      <input id="GET-name" type="text" name="name" style="width: 15em" /> &nbsp;
+      <label for="GET-sex">Sexe :</label>
+      <input id="GET-male" type="radio" name="sex" checked />
+      <label for="GET-male">Homme</label>
+      <input id="GET-female" type="radio" name="sex" />
+      <label for="GET-female">Femme</label> &nbsp;
+      <button type="button" onclick="jpp()">Ajouter</button>
+    </fieldset>
+    <div style="display: flex; justify-content: space-between; margin: 20px">
+      <div id="ldj" style="width: 35%; background-color: grey; padding: 20px">
+        <div style="font-weight: bolder" id="zone">Liste des joueurs:</div>
+      </div>
+      <div style="width: 55%; display: flex; background-color: grey">
+        <div style="width: 50%; padding: 10px">
+          Equipe 1 <br />
+          <select name="" id="e1" size="10" style="width: 90%"></select>
+        </div>
+        <div style="width: 50%; padding: 10px">
+          Equipe 2 <br />
+          <select name="" id="e2" size="10" style="width: 90%"></select>
+        </div>
+      </div>
+    </div>
+    <div
+      id="eq1"
+      style="background-color: lightblue; margin: 15px; padding: 10px"
+    >
+      <span>Composition Equipe 1:</span>
+    </div>
+    <div
+      id="eq2"
+      style="background-color: lightblue; margin: 15px; padding: 10px"
+    >
+      <span>Composition Equipe 2:</span>
+    </div>
+    <script>
+      function jpp() {
+        var nm = document.getElementById("GET-name").value,
+          div = document.createElement("div"),
+          span = document.createElement("span"),
+          sx = document.getElementById("GET-male"),
+          zone = document.getElementById("zone"),
+          select = document.createElement("select"),
+          option1 = document.createElement("option"),
+          option2 = document.createElement("option"),
+          option3 = document.createElement("option");
+        if (nm == "" || document.getElementById(nm)) {
+            alert("Vous avez déja entré ce nom ou vous n'avez pas rentré de nom !");
+        }
+        else {option1.appendChild(document.createTextNode("disponible"));
+        option2.appendChild(document.createTextNode("Equipe 1"));
+        option3.appendChild(document.createTextNode("Equipe 2"));
+        option2.addEventListener("click", jpp2, false);
+        option3.addEventListener("click", jpp3, false);
+        option1.value = "dispo";
+        option2.value = nm;
+        option3.value = nm;
+        select.id = nm + "3";
+        select.style.width = "50%";
+        select.appendChild(option1);
+        select.appendChild(option2);
+        select.appendChild(option3);
+        if (sx.checked) {
+          span.style.color = "blue";
+        } else span.style.color = "pink";
+        span.appendChild(document.createTextNode(nm));
+        div.style.display = "flex";
+        div.style.justifyContent = "space-between";
+        div.appendChild(span);
+        div.appendChild(select);
+        div.id = nm;
+        zone.appendChild(div);}
+      }
+      function jpp2 () {
+        var option = document.createElement("option"),
+        ins = document.getElementById(this.value),
+        e1 = document.getElementById("e1"),
+        span = document.createElement("span"),
+        eq1 = document.getElementById("eq1");
+          if (e1.childNodes.length == 5) {alert("Nombre de joueur limite atteint");
+          this.parentNode.value = "dispo";}
+        else {
+        option.appendChild(document.createTextNode(this.value));
+        option.addEventListener("dblclick", jpp4, false)
+        e1.appendChild(option);
+        ins.style.display = "none";
+        span.id = this.value + "1";
+        span.appendChild(document.createTextNode(" " + "[" + this.value + "]" + " "))
+        eq1.appendChild(span);
+        }
+      }
+      function jpp3() {
+        var option = document.createElement("option"),
+        ins = document.getElementById(this.value),
+        e2 = document.getElementById("e2"),
+        span = document.createElement("span"),
+        eq2 = document.getElementById("eq2");
+        if (e2.childNodes.length == 5) {alert("Nombre de joueur limite atteint")}
+        else{
+        option.appendChild(document.createTextNode(this.value));
+        option.addEventListener("dblclick", jpp5, false)
+        e2.appendChild(option);
+        ins.style.display = "none";
+        span.id = this.value + "2";
+        span.appendChild(document.createTextNode(" " + "[" + this.value + "]" + " "))
+        eq2.appendChild(span);
+        }
+      }
+      function jpp4 () {
+          var nm = this.innerText,
+          div = document.getElementById(this.innerText)
+          span = document.getElementById(this.innerText + "1");
+            div.style.display = "flex";
+        document.getElementById(nm + "3").value = "dispo";
+        span.remove();
+        this.remove();
+      }
+      function jpp5 () {
+          var nm = this.innerText,
+          div = document.getElementById(this.innerText)
+          span = document.getElementById(this.innerText + "2");
+          document.getElementById(nm + "3").value = "dispo";
+        div.style.display = "flex";
+        span.remove();
+        this.remove();
+      }
+    </script>
+  </body>
+</html>

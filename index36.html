@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main">
+      <div v-for="jul in obj">
+        <ul :id="jul.this">
+          <li v-for="(jull, i, t) in obj" :key="i" :key="t">
+            {{ jull[i] }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+      var main = new Vue({
+        el: "#main",
+        data: {
+          obj: {
+            Sports: ["Football", "Natation", "Tennis", "Marche"],
+            Livres: ["Le Château", "Les bienheureux", "La mer pourpre"],
+            Films: ["Les affranchis", "Spiderman", "Les oiseaux"],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

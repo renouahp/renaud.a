@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <label for="get">Entrez : </label>
+        <input type="text" v-model="message" id="get"/>
+        <h1  style="width: 50px;">{{ message }}</h1>
+        <h1  style="width: 50px;">{{ inverse }}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        var main = new Vue ({
+        el: '#main',
+        data: {
+        message: ''
+        },
+        computed: {
+        inverse: function (){
+            return this.message.split('').reverse().join('');
+        }
+        }
+    })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.imgPrinc {
+    background-image: url(IMG/pocket-watch-2036304.jpg);
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.backPers {
+    background-color: black;
+}
+
+.backgroundPast {
+    background-color: rgba(255, 255, 255, 0.432);
+}

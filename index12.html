@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var N = 1,
+        i,
+        rep;
+      while (N != 0) {
+        do {
+          N = prompt("N");
+          if (N === "0") {
+            break;
+          }
+          N=N*1;
+        } while (N < 5 || N > 9 || !N || N == 0);
+        if (N == 0) {
+          break;
+        }
+        let tab = Array(N),
+          sum = 0;
+        for (i = 0; i < N; i++) {
+          tab[i] = Math.floor(Math.random() * 11) + 10;
+          sum += tab[i];
+        }
+        rep = confirm("VTC");
+        if (rep) {
+          document.write(
+            Math.floor(sum / N) +
+              " " +
+              Math.floor((tab[N - 1] + tab[N - 2] + tab[N - 3]) / 3) +
+              "<br>"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

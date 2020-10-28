@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Suite</title>
+    <style>
+      *,
+      html {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #main,
+      #resetting {
+        display: flex;
+        justify-content: center;
+      }
+      #main > p {
+        width: 480px;
+        height: 80px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid black;
+      }
+      #resetting > button {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <p id="ip1">text 1<br/></p>
+      <p id="ip2">text 2<br/></p>
+      <p id="ip3">text 3<br/></p>
+      <p id="ip4">text 4<br/></p>
+      <p id="ip5">text 5<br/></p>
+      <p id="ip6">text 6<br/></p>
+    </div>
+    <div id="resetting"></div>
+    <script>
+        var b = document.querySelectorAll("p"),
+        b2 = document.createElement('button'),
+        idd3 = document.getElementById('resetting');
+        b2.appendChild(document.createTextNode("Reset"));
+        idd3.appendChild(b2);
+        b2.addEventListener("click", jpp3, false);
+        for (let i = 0; i < b.length; i++) {
+            const element = b[i];
+            element.style.backgroundColor = "green";
+            for (let i2 = 0; i2 < 2; i2++) {
+                let b1 = document.createElement('button');
+                if (i2 == 0){
+                b1.addEventListener("click", jpp, false);
+                b1.appendChild(document.createTextNode("-R-"));
+                }
+                else {b1.appendChild(document.createTextNode("-B-"));
+                b1.addEventListener("click", jpp2, false);}
+                element.appendChild(b1);
+            }
+            
+        }
+        function jpp () {
+          this.parentElement.style.backgroundColor = "red";
+        }
+        function jpp2 () {
+          this.parentElement.style.backgroundColor = "blue";
+        }
+        function jpp3 () {
+          for (let i = 0; i < b.length; i++){
+            const jjj = b[i];
+          jjj.style.backgroundColor = "green";
+          }
+        }
+
+    </script>
+  </body>
+</html>

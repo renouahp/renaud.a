@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var zed = 1,
+        txt = "";
+      do {
+        txt = prompt("Donne un mot");
+        zed++;
+        if (zed % 2 == 0) {
+          document.write('<div style="color:red;">' + txt + "</div>");
+        } 
+        else if (txt == "Zorro" || txt == "Garcia") {
+            document.write("Merde Quand Meme")
+        }
+        else {
+          document.write('<div style="color:green;">' + txt + "</div>");
+        }
+      } while (txt !== "Zorro" && txt !== "Garcia");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta nom="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nom = [], partie = [], resultat = [], toto = [], nbessais = [], wl = [], tt = [], game = 0, essais = 0;
+        for (game = 0; game >= 0 ; game++) {
+            tt[game]=[];
+            nom [game] = prompt("Donnez Moi un nom");
+            if (nom [game] == "FIN"){ break }
+            resultat [game] = Math.floor (100 * Math.random()) + 1;
+            for (essais = 0; essais < 7; essais++) {
+                tt [game] [essais] = Number (prompt("Donnez moi un chiffre entre 1 et 100 essai " + essais + "/7"));
+                z = tt [game] [essais];
+                nbessais [game] = essais + 1;
+                if (z == resultat [game]){
+                    document.write(nom [game] + " vous avez Gagné! En seulement " + nbessais [game] + "Vous ètes le meilleur, vraiment! <br>");
+                    wl [game] = " Gagné en " + nbessais [game] + " essais! ";
+                    break;
+                }
+                else if (z > resultat [game]) {
+                    document.write(nom [game] + " " + tt [game] [essais] + " trop grand !!! il vous reste " + (7 - (essais + 1)) + " essais !!! <br>");
+                }
+                else if (z < resultat [game]) {
+                    document.write(nom [game] + " " + tt [game] [essais] + " trop petit !!! il vous reste " + (7 - (essais + 1)) + " essais !!! <br>");
+                }
+            }
+            if (z != resultat [game]) {
+                document.write(nom [game] + " vous avez Perdu loooooooser! " + resultat [game] + " c'est putain de pas difficile a trouver putain merde quand meme merde <br>");
+                wl [game] = " Perdu loooooooser! ";
+            }
+        }
+        document.write("Fin de Partie! <br>");
+        for (game = 0; game >= 0 ; game++) {
+            if (nom [game] == "FIN") {
+                break;
+            }
+            document.write("joueur: " + nom [game] + ", Nombre Magique: " + resultat [game] + ", Essais: " + tt [game] + wl [game] + " <br>");
+        }
+        </script>
+</body>
+</html>

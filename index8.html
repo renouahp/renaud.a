@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var nb1 = 0,
+        nb2 = 0,
+        vr = "";
+      do {
+        nb1 = Number(prompt("NB1"));
+      } while (nb1 < 0);
+      do {
+        nb2 = Number(prompt("NB2"));
+      } while (nb2 < 0);
+
+      if (nb1>nb2){
+          nb1=nb1-nb2;
+          nb2=nb1+nb2;
+          nb1=nb2-nb1;
+      }
+      document.write(nb1);
+      nb1 = nb1 + 2;
+      do {
+        document.write("_" + nb1);  
+        nb1 = nb1 + 2;    
+      } while (nb1 <= nb2)
+    </script>
+  </body>
+</html>

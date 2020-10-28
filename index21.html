@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var nbbb = 0,
+            nbb = "",
+            unité = [
+                "zero",
+                "un",
+                "deux",
+                "trois",
+                "quatre",
+                "cinq",
+                "six",
+                "sept",
+                "huit",
+                "neuf",
+            ],
+            dix = ["dix", "onze", "douze", "treize", "quatorze", "quinze", "seize"],
+            dizaine = [
+                "",
+                "dix",
+                "vingt",
+                "trente",
+                "quarante",
+                "cinquante",
+                "soixante",
+            ];
+        signes = ["s", "-", "et", " "];
+        do {
+            nbbb++;
+            nb=nbbb.toString();
+            document.write("nbbb = " + nbbb + "<br>");
+            if (nbbb % 100 == 0) alert("toto");
+            nbb = (nb % 100).toString();
+            if (nb.length == 3 && nb > 99) {
+                if (nb < 200 && nb > 99) {
+                    document.write("cent");
+                } else {
+                    document.write(unité[(nb - (nb % 100)) / 100] + signes[1] + "cent");
+                }
+                if (nb % 100 == 0) {
+                    document.write(signes[0]);
+                }
+            }
+            if (nbb.length >= 2) {
+                if (nb.length == 3 && nb > 99) {
+                    document.write(signes[1]);
+                }
+                nb = nb % 100;
+                if (nb < 20) {
+                    if (nb > 16) {
+                        document.write(dix[0] + signes[1] + unité[nb % 10]);
+                    } else {
+                        document.write(dix[nb % 10]);
+                    }
+                } else if (nb > 69 && nb < 80) {
+                    if (nb > 76) {
+                        document.write(
+                            dizaine[6] + signes[1] + dix[0] + signes[1] + unité[nb % 10]
+                        );
+                    } else {
+                        document.write(dizaine[6] + signes[1]);
+                        if (nb % 10 == 1) {
+                            document.write(signes[2] + signes[1]);
+                        }
+                        document.write(dix[nb % 10]);
+                    }
+                } else if (nb > 79 && nb < 90) {
+                    if (nb == 80) {
+                        document.write(unité[4] + signes[1] + dizaine[2] + signes[0]);
+                    } else {
+                        document.write(
+                            unité[4] + signes[1] + dizaine[2] + signes[1] + unité[nb % 10]
+                        );
+                    }
+                } else if (nb > 89 && nb < 100) {
+                    if (nb > 96) {
+                        document.write(
+                            unité[4] +
+                            signes[1] +
+                            dizaine[2] +
+                            signes[1] +
+                            dix[0] +
+                            signes[1] +
+                            unité[nb % 10]
+                        );
+                    } else {
+                        document.write(
+                            unité[4] + signes[1] + dizaine[2] + signes[1] + dix[nb % 10]
+                        );
+                    }
+                } else if (nb % 10 == 0) {
+                    document.write(dizaine[nb / 10]);
+                } else {
+                    document.write(dizaine[(nb - (nb % 10)) / 10] + signes[1]);
+                    if (nb % 10 == 1) {
+                        document.write(signes[2] + signes[1]);
+                    }
+                    document.write(unité[nb % 10]);
+                }
+            }
+            if (nbb.length == 1) {
+                if (nb.length == 3 && nb % 100 == 0) {
+                    document.write(" &nbsp");
+                    continue;
+                }
+                if (nb.length == 3 && nb > 99) {
+                    document.write(signes[1]);
+                }
+                document.write(unité[nbb]);
+            }
+            document.write(" &nbsp");
+        } while (nbbb >= 0 && nbbb < 999);
+    </script>
+</body>
+
+</html>

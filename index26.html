@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="pseudo">Entrez un nom : </label>
+        <input type="text" name="pseudo" id="pseudo"> <br>
+        <fieldset>
+            <legend>Choisissez votre sexe</legend>
+        
+            <input type="radio" id="homme" name="sexe" checked>
+            <label for="homme">homme</label><br/>
+        
+            <input type="radio" id="femme" name="sexe">
+            <label for="femme">femme</label><br/>
+        </fieldset> <br>
+        <button type="button" id="sum">
+            Valider
+        </button>
+    </form>
+
+    <ul id="nom">
+        
+    </div>
+    <script>
+        btn = document.getElementById('sum');
+        idd3 = document.getElementById('nom');
+        btn.addEventListener("click", jpp, false);
+        function jpp () {
+            var gem = document.createElement("li"),
+            nm = document.getElementById('pseudo').value,
+            gn = document.getElementById('homme');
+            gem.appendChild(document.createTextNode(nm));
+            if (gn.checked) {
+                gem.style.color = "blue";
+            }
+            else {
+                gem.style.color = "red";
+            }
+            idd3.appendChild(gem);
+        }
+        
+    </script>
+</body>
+</html>

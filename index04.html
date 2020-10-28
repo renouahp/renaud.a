@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+
+        <div id="container">
+            <p>Les grands joueurs de football:</p>
+            <ul>
+                <li>Pelé</li>
+                <li>Maradonna</li>
+                <li>Platini</li>
+                <li>Zidane</li>
+                <li>Messi</li>
+                <li>Ronaldo</li>
+            </ul>
+            <p>Voir<a href="page.html">ICI</a></p>
+        </div>
+
+    -->
+    <div id="container"></div>
+
+    <script>
+    // Ecrire un script qui modifie la div 'container' pour aboutir à l'exemple ci-dessus
+        var monP = document.createElement ("p");
+        monP.appendChild(document.createTextNode('Les grands joueurs de football:'));
+
+        var monUl = document.createElement ("ul");
+        monUl.appendChild(document.createElement("li").appendChild(document.createTextNode('Pelé')));
+        monUl.appendChild(document.createElement("li").appendChild(document.createTextNode('Maradonna')));
+        monUl.appendChild(document.createElement("li").appendChild(document.createTextNode('Platini')));
+        monUl.appendChild(document.createElement("li").appendChild(document.createTextNode('Zidane')));
+        monUl.appendChild(document.createElement("li").appendChild(document.createTextNode('Messi')));
+        monUl.appendChild(document.createElement("li").appendChild(document.createTextNode('Ronaldo')));
+        var monP2 = document.createElement ("p");
+        monP2.appendChild(document.createTextNode('Voir'));
+        var monA = document.createElement('a');
+        monA.href='page.html';
+        monA.appendChild(document.createTextNode('ICI'));
+        monP2.appendChild(monA);
+        var maDiv = document.getElementById('container');
+        maDiv.appendChild(monP);
+        maDiv.appendChild(monUl);
+        maDiv.appendChild(monP2);
+
+    </script>
+</body>
+
+</html>

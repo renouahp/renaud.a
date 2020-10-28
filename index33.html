@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: lightgray" onload="vvv()">
+    <fieldset style="border: 1px solid black">
+      <legend>Saisie de tache:</legend>
+      <label for="GET-task">Tache :</label>
+      <input id="GET-task" type="text" name="name" style="width: 15em" /> &nbsp;
+      <button type="button" onclick="jpp()">Ajouter</button>
+    </fieldset>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        background-color: grey;
+        margin-top: 20px;
+      "
+    >
+      <div style="width: 25%; padding: 10px">
+        To do <br />
+        <select name="" id="tod" size="13" style="width: 90%"></select>
+      </div>
+      <div style="width: 25%; padding: 10px">
+        Doing <br />
+        <select name="" id="doi" size="13" style="width: 90%"></select>
+      </div>
+      <div style="width: 25%; padding: 10px">
+        Done <br />
+        <select name="" id="do" size="13" style="width: 90%"></select>
+      </div>
+      <div style="width: 25%; padding: 10px; margin-left: 40px">
+        Archived <br />
+        <select name="" id="arch" size="13" style="width: 90%"></select>
+      </div>
+    </div>
+    <script>
+      var toDo = document.getElementById("tod"),
+        doing = document.getElementById("doi"),
+        done = document.getElementById("do"),
+        archived = document.getElementById("arch"),
+        i = 0;
+
+      function jpp() {
+        var task = document.getElementById("GET-task").value,
+          option = document.createElement("option");
+        option.value = "task" + i;
+        option.id = "task" + i;
+        option.appendChild(document.createTextNode(task));
+        toDo.appendChild(option);
+        let hhh = toDo.children [0];  
+        createCookie("toDo" + toDo.children.length+1, hhh.innerHTML, 20);
+        i++;
+      }
+
+      toDo.addEventListener("dblclick", function () {
+        eraseCookie("toDo" + (toDo.children.length-1)) ;avancer(doing, toDo, toDo);
+      });
+
+      doing.addEventListener("dblclick", function () {
+        eraseCookie("doing" + (doing.children.length-1)) ;avancer(done, doing, toDo);
+      });
+
+      done.addEventListener("dblclick", function () {
+        eraseCookie("done" + (done.children.length-1)) ;avancer(archived, done, doing);
+      });
+
+      archived.addEventListener("dblclick", function () {
+        eraseCookie("archived" + (archived.children.length-1)) ;avancer(archived, archived, done);
+      });
+
+      function vvv() {
+        for (let index = 0; readCookie("archived" + index); index++) {
+        let gg = document.createElement("option");
+        gg.value = "task" + index;
+        gg.id = "task" + index;
+        gg.appendChild(document.createTextNode(readCookie("archived" + index)));
+        archived.appendChild(gg);
+    }
+
+    for (let index = 0; readCookie("doing" + index); index++) {
+        let gg = document.createElement("option");
+        gg.value = "task" + index;
+        gg.id = "task" + index;
+        gg.appendChild(document.createTextNode(readCookie("doing" + index)));
+        doing.appendChild(gg);
+    }
+    for (let index = 0; readCookie("done" + index); index++) {
+        let gg = document.createElement("option");
+        gg.value = "task" + index;
+        gg.id = "task" + index;
+        gg.appendChild(document.createTextNode(readCookie("done" + index)));
+        done.appendChild(gg);
+    }
+    for (let index = 0; readCookie("toDo" + index); index++) {
+        let gg = document.createElement("option");
+        gg.value = "task" + index;
+        gg.id = "task" + index;
+        gg.appendChild(document.createTextNode(readCookie("toDo" + index)));
+        toDo.appendChild(gg);
+    }
+}
+
+      function avancer(nxt, ado, prev) {
+        var cible = document.getElementById(ado.value);
+        if (event.shiftKey) {
+        prev.appendChild(cible);
+        } else {
+         nxt.appendChild(cible);
+        }
+        for (let index = 0; index < archived.children.length; index++) {
+            let hhh = archived.children [index];
+            createCookie("archived" + index,  hhh.innerHTML, 20);
+        }
+        for (let index = 0; index < done.children.length; index++) {
+            let hhh = done.children [index];
+            createCookie("done" + index, hhh.innerHTML, 20);
+        }
+        for (let index = 0; index < doing.children.length; index++) {
+            let hhh = doing.children [index];
+            console.log(hhh);
+            createCookie("doing" + index, hhh.innerHTML, 20);
+        }
+        for (let index = 0; index < toDo.children.length; index++) {
+            let hhh = toDo.children [index];
+            createCookie("toDo" + index, hhh.innerHTML, 20);
+        }
+      }
+
+      function createCookie(name, value, days) {
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          var expires = "; expires=" + date.toGMTString();
+        } else var expires = "";
+        document.cookie = name + "=" + value + expires + "; path=/";
+      }
+
+      function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+      function eraseCookie(name) {
+        createCookie(name, "", -1);
+      }
+    </script>
+  </body>
+</html>

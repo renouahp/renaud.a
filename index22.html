@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Joueur(param1, param2) {
+        this.nom = param1;
+        this.numero = param2;
+        if (isNaN(this.numero) || this.numero > 23 || this.numero < 1) {
+          this.numero = 0;
+          console.log("le numero n'est pas possible numero attribué a 0");
+        } else this.numero;
+        this.position = 0;
+        this.posJoueur = function (gg) {
+          console.log("ma position est " + this.position + gg);
+        };
+        this.presentJoueur = function () {
+          console.log("nom: " + this.nom + " numero: " + this.numero + " ");
+          this.posJoueur(" resultat de presentJoueur");
+        };
+        this.avance = function () {
+          if (this.position == 10) {
+            console.log("Je ne peux plus avancer");
+          } else this.position++;
+          this.posJoueur(" ++");
+        };
+        this.recule = function () {
+          if (this.position == 0) {
+            console.log("Je ne peux plus reculer");
+          } else this.position--;
+          this.posJoueur(" --");
+        };
+      }
+      var personne = new Joueur("Felix", 300);
+      personne.presentJoueur();
+      personne.posJoueur(" init");
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.recule();
+      personne.presentJoueur();
+      personne.recule();
+      personne.recule();
+      personne.recule();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.presentJoueur();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+      personne.avance();
+    </script>
+  </body>
+</html>

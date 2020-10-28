@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            box-sizing: border-box;
+        }
+        .imgsp1{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 50%;
+    }
+        .till {
+            border: 1px, solid, black;
+            height: 20px;
+            width: 20px;
+            margin: 10px;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        .spec{
+            border: 1px, solid, black;
+            height: 200px;
+            width: 40%;
+            margin: 10px;
+        }
+        .gang{
+            border: 1px, solid, black;
+            height: 500px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="width: 70%;">
+            <div style="display: flex;" id="flexxx">
+                <div style="width: 40%;">DWWM</div>
+                <div style="width: 15%;">lambda</div>
+                <div style="width: 15%;">lambda</div>
+                <div style="width: 15%;">lambda</div>
+                <div style="width: 15%;">lambda</div>
+            </div>
+            <div style="display: flex;">
+                <div class="imgsp1 gang" id="0"></div>
+                <div id="txt0"></div>
+            </div>
+            <div>
+                copyrighyt
+            </div>
+        </div>
+        <div style="width: 30%; height: 400px;">
+            <div style="height: 200px;">
+                couleur
+                <div style="height: 50px; display: flex;">titre 
+                    <div class="till red" id="red" onclick=jssj("red")> </div>
+                    <div class="till blue" id="blue" onclick=jssj("blue") ></div>
+                    <div class="till green" id="green" onclick=jssj("green") ></div>
+                </div>
+                <div style="height: 50px; display: flex;">texte 
+                    <div class="till red" name="red" onclick=jssj1("red")></div>
+                    <div class="till blue" name="blue" onclick=jssj1("blue")></div>
+                    <div class="till green" name="green" onclick=jssj1("green")></div>
+                </div>
+            </div>
+            image
+            <div style="display: flex; flex-wrap: wrap;">
+                
+                <div class="imgsp1 spec"  id="1"></div>
+                <div class="imgsp1 spec"  id="2"></div>
+                <div class="imgsp1 spec"  id="3"></div>
+                <div class="imgsp1 spec"  id="4"></div>
+            </div>
+            <div id="txt1" style="display: none;"></div>
+            <div id="txt2" style="display: none;"></div>
+            <div id="txt3" style="display: none;"></div>
+            <div id="txt4" style="display: none;"></div>
+            <div id="txt5"></div>
+        </div>
+    </div>
+    <script>
+        var dxd = [],
+        txt = [],
+        imgg = [];
+        for (let i = 0; i < 5; i++) {
+            var 
+            posi = document.getElementById(i),
+            posi2 = document.getElementById("txt" + i);
+            dxd.push("lorem" + i);
+            imgg[i] = "url(/img/" + i + ".jpg)";
+            posi.style.backgroundImage = imgg[i];
+            txt [i] = document.createElement("span");
+            txt[i].appendChild(document.createTextNode("lorem" + i));
+            posi2.appendChild(txt[i])
+            posi.addEventListener("click", jpp3, false);
+        }
+        function jpp3 () {
+            var gg = document.getElementById("0"),
+            xp = Number(this.id),
+            fg = document.getElementById("txt1");
+            fg.style.backgroundImage = this.style.backgroundImage;
+            this.style.backgroundImage = gg.style.backgroundImage;
+            gg.style.backgroundImage = fg.style.backgroundImage;
+            document.getElementById("txt0").innerHTML = dxd[xp];
+        }
+
+        function jssj(guerre) {
+            let jem = document.getElementById("flexxx");
+            jem.style.color = guerre;
+
+        }
+        function jssj1(guer) {
+            let jem = document.getElementById("txt0");
+            jem.style.color = guer;
+
+        }
+        
+        
+    </script>
+</body>
+</html>

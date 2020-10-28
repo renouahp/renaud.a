@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var tab = [10, 3, 11, 9, 27, 51, 32, 2];
+      var u = tab.length - 1;
+      for (var i = 0; i <= u; i++) {
+          for (z=i+1; z <= u ; z++)
+          if (tab [i] >= tab [z]) {
+              tab [i] = tab [i] - tab [z];
+              tab [z] = tab [z] + tab [i];
+              tab [i] = tab [z] - tab [i];
+          }
+          
+      }
+      document.write (tab)
+    </script>
+  </body>
+</html>

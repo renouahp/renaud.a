@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var t1 = Array(10), sum = 0;
+      for (let i = 0; i < 10; i++) {
+        do {
+          t1 [i] = Number(prompt("Donnez un chiffre"));
+        } while (t1[i] < 0);
+        sum += t1[i];
+      }
+      document.write("La somme des chiffres " + t1.join(" + ") + " est " + sum);
+    </script>
+  </body>
+</html>

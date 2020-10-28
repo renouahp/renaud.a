@@ -1,0 +1,137 @@
+.imgprinc {
+    background-image: url(/la-bouffe-royale.jpg);
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+body {
+    box-sizing: border-box;
+}
+h5, .h7 {
+    text-align: center;
+    margin: 20px;
+}
+.title{
+    margin: 20px 50px;
+}
+.apro{
+    margin: 20px;
+}
+.apro1 {
+    margin: 35px;
+}
+
+.h8{
+    font-size: 0.75em;
+}
+.imgsp1{
+    background-image: url(/specialites-01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+}
+.imgsp2{
+    background-image: url(/specialites-02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+}
+.imgsp3{
+    background-image: url(/specialites-03.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+}
+.pipi {
+    margin: 0 5px;
+}
+.colo {
+    height: 140px;
+}
+.img11 {
+    margin: 0px;
+}
+.mainim{
+    margin: 10px 0;
+}
+.imgplt1{
+    background-image: url(plat-01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt2{
+    background-image: url(plat-02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt3{
+    background-image: url(plat-03.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt4{
+    background-image: url(plat-04.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt5{
+    background-image: url(plat-05.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt6{
+    background-image: url(plat-06.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt7{
+    background-image: url(plat-07.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.imgplt8{
+    background-image: url(plat-08.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+}
+.photochf1 {
+    background-image: url(Chef01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+.photochf2 {
+    background-image: url(Chef02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+.photochf3 {
+    background-image: url(Chef03.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}

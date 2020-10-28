@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var etud1,
+        etud2,
+        etud3,
+        moy1,
+        moy2,
+        moy3,
+        moy11,
+        moy12,
+        moy13,
+        moy21,
+        moy22,
+        moy23;
+      etud1 = prompt("Qui est 1?");
+      do {
+        moy1 = Number(prompt("Combien?1"));
+      } while (moy1 < 0 || moy1 > 20);
+      do {
+        moy2 = Number(prompt("Combien?2"));
+      } while (moy2 < 0 || moy2 > 20);
+      do {
+        moy3 = Number(prompt("Combien?3"));
+      } while (moy3 < 0 || moy3 > 20);
+      etud2 = prompt("Qui est 2?");
+      do {
+        moy11 = Number(prompt("Combien?1"));
+      } while (moy11 < 0 || moy11 > 20);
+      do {
+        moy12 = Number(prompt("Combien?2"));
+      } while (moy12 < 0 || moy12 > 20);
+      do {
+        moy13 = Number(prompt("Combien?3"));
+      } while (moy13 < 0 || moy13 > 20);
+      etud3 = prompt("Qui est 3?");
+      do {
+        moy21 = Number(prompt("Combien?1"));
+      } while (moy21 < 0 || moy21 > 20);
+      do {
+        moy22 = Number(prompt("Combien?2"));
+      } while (moy22 < 0 || moy22 > 20);
+      do {
+        moy23 = Number(prompt("Combien?3"));
+      } while (moy23 < 0 || moy23 > 20);
+      document.write(
+        etud1 +
+          " a eu " +
+          (moy1 + moy2 + moy3) / 3 +
+          " et " +
+          etud2 +
+          " a eu " +
+          (moy11 + moy12 + moy13) / 3 +
+          " et " +
+          etud3 +
+          " a eu " +
+          (moy21 + moy22 + moy23) / 3 +
+          " et la moy est " +
+          (moy1 + moy2 + moy3 + moy11 + moy12 + moy13 + moy21 + moy22 + moy23) /
+            9
+      );
+    </script>
+  </body>
+</html>

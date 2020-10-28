@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var tab1 = [
+        [19, 1, 32],
+        [19, 1, 21],
+        [33, 88, 33],
+        [5, 25, 1],
+        [33, 88, 11],
+      ];
+      function maPetiteFonctionDeTriNumerique(a, b) {
+        for (i = 0; i < a.length; i++) {
+          if (a[i] < b[i]) {
+            return -1;
+          } else if (a[i] > b[i]) {
+            return 1;
+          }
+        }
+      }
+      var tab3 = tab1.sort(maPetiteFonctionDeTriNumerique);
+      document.write(
+        "Apres le tri avec une fonction : <br>" + tab3.join(" | ")
+      );
+    </script>
+  </body>
+</html>

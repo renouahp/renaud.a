@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo JS 1</title>
+</head>
+<!-- <style>
+    .zephyr {
+        color: rgba(0 0 0 / .8);
+    }
+    .bold{
+        font-weight: 700;
+    }
+    .red {
+        color: red;
+    }
+    .green {
+        background: mediumseagreen;
+        color: white;
+    }
+    span {
+        border: 1px rgb(0 0 0 / .1) dashed;
+        margin: 1px;
+        width: 50px;
+        justify-content: center;
+        display: inline-flex;
+        visibility: hidden;
+    }
+</style> -->
+<script>
+    var res , pair=0, impair=0;
+    while (res!=0){
+    res=window.prompt("Donnez un nombre entre 1 et 20")
+    if (res%2===0 && res>0 && res<21) pair=pair+1;
+    if (res%2!=0 && res>0 && res<21) impair=impair+1;
+    }
+    document.write("Fin de partie vous avez donné "+pair+" chiffre pair et "+impair+"chiffre impair")
+</script>
+<body>

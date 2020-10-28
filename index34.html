@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id = "main">
+        <div>{{ msg }}. je suis {{ nom }} et j'ai {{ age }} ans.</div>
+        <p id="langage">
+            <ul>
+                <li v-for="jul in lazone">
+                    {{ jul.text }}
+                </li>
+            </ul>
+        </p>
+        <label for="get">Slogan du jour : </label>
+        <input type="text" v-model="message" />
+        <h1 id="inside" style="width: 50px;">{{ message }}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        var main = new Vue ({
+            el: '#main',
+            data: {
+                nom: 'Martine',
+                msg: 'Jourbon',
+                age: 24,
+                lazone: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ],
+    message: ''
+            }
+        })
+    </script>
+  </body>
+</html>

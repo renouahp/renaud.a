@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      arr = [
+        {
+          nom: "Martine",
+          age: 52,
+          note: [14, 8, 16],
+          married: false,
+          bonus: 0,
+        },
+        {
+          nom: "Anne",
+          age: 49,
+          note: [15, 18, 5],
+          married: true,
+          bonus: 0,
+        },
+        {
+          nom: "aurelie",
+          age: 38,
+          note: [11, 8, 6],
+          married: false,
+          bonus: 0,
+        },
+        {
+          nom: "Emmanuelle",
+          age: 33,
+          note: [12, 10, 10],
+          married: true,
+          bonus: 0,
+        },
+        {
+          nom: "coralie",
+          age: 31,
+          note: [13, 17, 16],
+          married: true,
+          bonus: 0,
+        },
+        {
+          nom: "emilie",
+          age: 37,
+          note: [10, 8, 2],
+          married: false,
+          bonus: 0,
+        },
+      ];
+
+    //   var arr2 = arr.sort(tri_numerique);
+
+    //   function tri_numerique(a, b) {
+    //         if (a.age < b.age) {
+    //             return -1;
+    //         }
+    //         else {
+    //             return 1
+    //         }
+    //     }
+
+    // function tri_numerique(a, b) {
+    //         if (a.note[1] < b.note[1]) {
+    //             return -1;
+    //         }
+    //         else if (a.note[1] > b.note[1]) {
+    //             return 1
+    //         }
+    //         else {
+    //             if (a.age < b.age) {
+    //                 return -1;
+    //             }
+    //             else if (a.age > b.age) {
+    //                 return 1
+    //             }
+    //             else {
+    //                 return 0;
+    //             }
+    //         }
+    //     }
+
+    //   function tri_numerique(b) {
+    //     if (b.age < 50 && b.age> 35) return b;
+    // }
+
+    // function tri_numerique(b) {
+    //    if (b.nom.toLowerCase().startsWith('e') || b.nom.toLowerCase().endsWith('ie')) return b;
+    // }
+
+    //    function tri_numerique(b) {
+    //     if (b.note[1] > 9) return b;
+    // }
+
+    //        function tri_numerique(b) {
+    //            var bmoy = (b.note.reduce((a, b) => a + b, 0))/b.note.length;
+    //     if (bmoy > 10){ b.bonus = 10; return b;}
+    // }
+
+     function tri_numerique(b) {
+       if (b.nom.toLowerCase().startsWith('a') && b.note[2] < 10) {b.bonus = -100; return b;}
+    }
+
+        var arr2 = arr.filter(tri_numerique);
+    </script>
+  </body>
+</html>
