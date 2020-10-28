@@ -115,7 +115,7 @@ VALUES (
         '02789',
         'Lille-lep'
     );
-INSERT INTO livres (titre)
+INSERT INTO livre (titre)
 VALUES ('les oiseaux'),
     ('les chiens'),
     ('les lamas'),
